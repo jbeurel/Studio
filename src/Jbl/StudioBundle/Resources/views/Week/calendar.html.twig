@@ -1,0 +1,64 @@
+{% extends "JblStudioBundle::admin_layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Semaines{% endblock %}
+
+{% block body %}
+
+<div class="sand-bg">
+
+	<div class="container" id="content">
+			
+		<h1>Semaines</h1>
+		
+		
+		
+		<div class="row">
+			<div class="span16">
+				<div id="calendar" class="admincalendar"></div>
+			</div>
+		</div>
+		
+		
+		<div id="add-modal" class="modal hide fade" style="display: none;">
+			<div id="add-modal-href" class="hide">{{ path('week_new') }}</div>
+            <div class="modal-header">
+				<a href="#" class="close">×</a>
+				<h3>Création d'une nouvelle semaine</h3>
+            </div>
+            <div class="modal-body">
+				<p>Voulez vous ajouter une nouvelle semaine de location au calendrier ?</p>
+            </div>
+            <div class="modal-footer">
+				<a id="add-validation" href="" class="btn primary">Oui</a>
+				<a href="#" onclick="($('#add-modal').modal('hide'));return false;" class="btn secondary hide">Non</a>
+			</div>
+		</div>
+		
+		<div id="edit-modal" class="modal hide fade" style="display: none;">
+			<div id="reserve-modal-href" class="hide">{{ path('week_reserve') }}</div>
+			<div id="edit-modal-href" class="hide">{{ path('week_rate') }}</div>
+			<div id="del-modal-href" class="hide">{{ path('week_delete') }}</div>
+            <div class="modal-header">
+				<a href="#" class="close">×</a>
+				<h3>Modification</h3>
+            </div>
+            <div class="modal-body">
+				<p><a id="reserve-validation" class="btn primary" href="">Réservation </a> Gestion de la réservation pour la semaine sélectionnée.</p>
+				<p><a id="edit-validation" class="btn primary" href="" >Tarifs</a> Gestion des tarifs pour la semaine sélectionnée.</p>
+				<p><a id="del-validation" class="btn  danger" href="" >Supprimer</a> Retirer cette semaine du calendrier.</p>
+            </div>
+            <div class="modal-footer">
+				<a href="#" onclick="($('#edit-modal').modal('hide'));return false;" class="btn secondary hide">Annuler</a>
+			</div>
+		</div>
+
+		{% if dateTargetMonth != -1 %}
+		<div id="dateTarget" class="hide">
+			<div id="dateTargetYear">{{ dateTargetYear }}</div>
+			<div id="dateTargetMonth">{{ dateTargetMonth }}</div>
+		</div>
+		{% endif %}
+		
+	</div>
+</div>
+{% endblock %}

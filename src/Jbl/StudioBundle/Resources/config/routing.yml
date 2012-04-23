@@ -1,0 +1,30 @@
+JblStudioBundle_login:
+    pattern:  /login
+    defaults: { _controller: JblStudioBundle:Admin:login }
+JblStudioBundle_loginCheck:
+    pattern:  /login_check
+    defaults: { _controller: JblStudioBundle:Admin:loginCheck }    
+JblStudioBundle_logout:
+    pattern:  /logout
+    defaults: { _controller: JblStudioBundle:Admin:logout }    
+JblStudioBundle_home:
+    pattern:  /
+    defaults: { _controller: JblStudioBundle:Home:index }
+JblStudioBundle_admin:
+    pattern:  /admin
+    defaults: { _controller: JblStudioBundle:Admin:index }
+JblStudioBundle_week:
+    resource: "routing/week.yml"
+    prefix:   /admin/week
+week_jsonlist:
+    pattern:  /week/jsonlist
+    defaults: { _controller: "JblStudioBundle:Week:jsonlist" }
+JblStudioBundle_rate:
+    resource: "routing/rate.yml"
+    prefix:   /admin/rate
+JblStudioBundle_contact:
+    resource: "routing/contact.yml"
+    prefix:   /admin/contact
+JblStudioBundle_phone:
+    resource: "routing/phone.yml"
+    prefix:   /admin/phone

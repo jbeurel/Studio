@@ -1,0 +1,7 @@
+parameters:
+#    jbl_studio.example.class: Jbl\StudioBundle\Example
+
+services:
+#    jbl_studio.example:
+#        class: %jbl_studio.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

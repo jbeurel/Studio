@@ -1,0 +1,74 @@
+{% extends "JblStudioBundle::admin_layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Ajout d'un contact{% endblock %}
+
+{% block body %}
+
+<div class="sand-bg">
+
+	<div class="container" id="content">
+	
+		<h1>Contacts</h1>
+		
+		<fieldset>
+			<legend>Ajouter un contact</legend>
+			<form action="{{ path('contact_create') }}" method="post" {{ form_enctype(form) }}>
+			
+				{% if form_errors(form) %}
+				<div class="alert-message warning">
+			    	<div>{{ form_errors(form) }}</div>
+			    </div>
+				{% endif %}
+				
+				<div class="clearfix">
+				
+					{{ form_label(form.firstName, 'Prénom :') }}
+				    <div class="input">
+				    	{{ form_widget(form.firstName,{ 'attr': {'class': 'xlarge', 'size':'30'} }) }}
+					</div>
+				</div>
+				
+				<div class="clearfix">
+				
+					{{ form_label(form.lastName, 'Nom :') }}
+				    <div class="input">
+				    	{{ form_widget(form.lastName,{ 'attr': {'class': 'xlarge', 'size':'30'} }) }}
+					</div>
+				</div>
+				
+				<div class="clearfix">
+				
+					{{ form_label(form.address, 'Adresse :') }}
+				    <div class="input">
+				    	{{ form_widget(form.address,{ 'attr': {'class': 'xlarge', 'rows':'3'} }) }}
+					</div>
+				</div>
+	
+				<div class="clearfix">
+				
+					{{ form_label(form.phone, 'Téléphone :') }}
+				    <div class="input">
+				    	{{ form_widget(form.phone,{ 'attr': {'class': 'xlarge', 'size':'30'} }) }}
+					</div>
+				</div>					
+
+				<div class="clearfix">
+				
+					{{ form_label(form.info, 'Informations :') }}
+				    <div class="input">
+				    	{{ form_widget(form.info,{ 'attr': {'class': 'xlarge', 'rows':'3'} }) }}
+					</div>
+				</div>
+				
+			    {{ form_widget(form) }}
+			    
+			    <div class="actions">
+			        <button class="btn success" type="submit">Ajouter</button>
+			        <a class="btn" href="{{ path('contact') }}">Annuler</a>
+			    </div>
+			    
+			</form>
+		</fieldset>
+	</div>
+</div>
+{% endblock %}

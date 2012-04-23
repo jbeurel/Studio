@@ -1,0 +1,88 @@
+@CHARSET "UTF-8";
+
+html {
+	background-color: #f4eee2;
+}
+
+body {
+	padding-top: 40px;
+}
+
+/***************************************/
+/*            Color                    */
+/***************************************/
+
+.skycolor {
+	color: #509ddc;
+}
+
+/***************************************/
+/*           Background                */
+/***************************************/
+
+.topbar-bg {
+	background-color: #0c4777;
+}
+
+.sky-bg {
+	background: url('../images/design/sky.jpg');
+	background-color: #509ddc;
+}
+
+.sand-bg {
+	background: url('../images/design/sand.png');
+	background-color: #f4eee2;
+	margin: 0px;
+	padding: 0px;
+}
+
+.admintopbar-bg {
+	background-color: #aa0000;
+}
+
+
+/***************************************/
+/*             Slider                  */
+/***************************************/
+
+.nivoSlider {
+    position:relative;
+    width:968px; /* Change this to your images width */
+    height:420px; /* Change this to your images height */
+	background: url('../images/slider/loading.gif') no-repeat 50% 50%;
+	
+}
+
+
+/***************************************/
+/*             Content                 */
+/***************************************/
+
+section h2 {
+	padding-top: 40px;
+}
+
+/***************************************/
+/*          Environnement              */
+/***************************************/
+#googlelist tr {
+	cursor: pointer;
+}
+
+#googlelist tr:HOVER {
+	background-color: white;	
+}
+
+#googlelist .title {
+	font-weight: bold;
+}
+
+/***************************************/
+/*          Calendar                   */
+/***************************************/
+.admincalendar .fc-widget-content, .admincalendar .fc-event-inner{
+	cursor: pointer;
+}
+
+
+

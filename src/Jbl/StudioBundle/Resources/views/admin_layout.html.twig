@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.2//EN" "http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+		<title>{% block title %}Administration{% endblock %}</title>
+		
+		{% stylesheets 
+			'bundles/jblstudio/css/bootstrap/bootstrap.min.css'
+			'bundles/jblstudio/css/fullcalendar/fullcalendar.css'
+			'bundles/jblstudio/css/custom.css'
+ 			filter='cssrewrite, yui_css'
+		 %}
+		<link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+		{% endstylesheets %}
+		
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		
+		{% javascripts 
+			'bundles/jblstudio/js/bootstrap/bootstrap-scrollspy.js'
+			'bundles/jblstudio/js/bootstrap/bootstrap-modal.js'
+			'bundles/jblstudio/js/fullcalendar/fullcalendar.min.js'
+			'bundles/jblstudio/js/jquery.tablesorter.min.js'
+			'bundles/jblstudio/js/admincustom.js'
+ 			filter='yui_js'
+		%}
+		<script type="text/javascript" src="{{ asset_url }}" charset="utf-8"></script>
+		{% endjavascripts %}
+		
+	</head>
+	<body>
+	
+		<div id='main-container'>
+		
+			<div class="topbar" data-scrollspy="scrollspy" >
+				<div class="admintopbar-bg">
+				 	<div class="container"> 
+			        	<h3><a href="{{ path("JblStudioBundle_home")}}">StudioTagarin.fr</a></h3> 
+			        	{% block menu %}
+						<ul> 
+				            <li><a href="{{ path("week_calendar")}}">Semaines</a></li> 
+				            <li><a href="{{ path("rate")}}">Tarifs</a></li> 
+				            <li><a href="{{ path("contact")}}">Contacts</a></li> 
+				            <li><a href="{{ path("phone_switch")}}">Téléphone</a></li> 
+						</ul> 
+						<ul class="nav secondary-nav">
+							<li><a href="{{ path("JblStudioBundle_logout")}}">Déconnexion ({{ app.user.username }})</a></li>
+						</ul>
+						{% endblock %}			
+					</div>
+		        </div> 
+			</div>
+			
+			<div class="sand-bg">
+				{% block body %}
+				{% endblock %}
+				
+				<footer class="container">
+					<div class="row">
+						<div class="span16">
+							&copy; 2012 StudioTagarin.fr - All rights reserved.
+						</div>
+					</div>
+				</footer>
+			</div>	
+		</div>
+		
+
+
+
+	</body>
+</html>

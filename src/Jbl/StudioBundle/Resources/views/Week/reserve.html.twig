@@ -1,0 +1,60 @@
+{% extends "JblStudioBundle::admin_layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Réservation{% endblock %}
+
+{% block body %}
+
+<div class="sand-bg">
+
+	<div class="container" id="content">
+	
+		<h1>Réservation</h1>
+		
+		<div class="row">
+			<div class="span8">
+				<fieldset>
+					<legend>Réserver une semaine pour un contact</legend>
+			
+					{% if form_errors(edit_form) %}
+					<div class="alert-message warning">
+				    	<div>{{ form_errors(edit_form) }}</div>
+				    </div>
+					{% endif %}
+			
+					<form action="{{ path('week_reserveValidation', { 'id': week.id }) }}" method="post" >
+					
+						<div class="clearfix">
+						    {{ form_label(edit_form.contact, "Contact :") }}
+						    <div class="input">
+								{{ form_widget(edit_form.contact) }}
+							</div>
+						</div>
+					
+						{{ form_widget(edit_form._token) }}
+					
+						<div class="actions">
+					    	<button class="btn success" type="submit">Réserver</button>
+							<a class="btn" href="{{ path('week_calendar') }}">Annuler</a>
+					    </div>
+					</form>
+				</fieldset>
+			</div>
+			<div class="span8">
+			
+				{% if week.isFree == false %}
+				<fieldset>
+					<legend>Annulation de la réservation</legend>
+					
+			        <form action="{{ path('week_reserveCancellation', { 'id': week.id }) }}" method="post">
+						{{ form_widget(edit_form._token) }}
+			            <div class="actions">
+			            	<button class="btn danger" type="submit">Annuler la réservation</button>
+			            </div>
+			        </form>
+				</fieldset>
+				{% endif %}
+			</div>			
+			
+	</div>
+</div>
+{% endblock %}

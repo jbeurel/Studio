@@ -1,0 +1,55 @@
+{% extends "JblStudioBundle::admin_layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Connexion{% endblock %}
+
+{% block menu %}{% endblock %}
+{% block body %}
+
+
+
+<div class="container" id="content">
+
+	<p>
+		<fieldset>
+			
+			<legend>Formulaire de connexion</legend>
+			
+			<form action="{{ path('JblStudioBundle_loginCheck') }}" method="post">
+			
+				{% if error %}
+				<div class="alert-message warning">
+			    	<div>{{ error.message }}</div>
+			    </div>
+				{% endif %}
+				
+				<div class="row">
+				
+					<div class="span9">
+						<div class="clearfix"></div>
+						<div class="clearfix"></div>
+						<div class="clearfix">
+						    <label for="username">Utilisateur :</label>
+						    <div class="input">
+						    	<input class="xlarge" size="30" type="text" id="username" name="_username" value="{{ last_username }}" />
+							</div>
+						</div>
+						
+						<div class="clearfix">
+						    <label for="password">Mot de passe :</label>
+						    <div class="input">
+						    	<input class="xlarge" size="30" type="password" id="password" name="_password" />
+						    </div>
+						</div>
+					</div>
+					<div class="span7">
+						<img src="{{ asset('bundles/jblstudio/images/design/lock.png') }}" alt="" />
+					</div>
+				</div>
+				<div class="actions">
+			    	<input class="btn success" type="submit" name="login" />
+			    </div>
+			</form>
+		</fieldset>
+	</p>
+</div>
+{% endblock %}

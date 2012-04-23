@@ -1,0 +1,44 @@
+{% extends "JblStudioBundle::admin_layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Tarifs{% endblock %}
+
+{% block body %}
+
+<div class="sand-bg">
+
+	<div class="container" id="content">
+			
+		<h1>Tarifs</h1>
+		
+		{% if is_granted('ROLE_SUPER_ADMIN') %}
+		<p>
+	        <a class="btn success" href="{{ path('rate_new') }}">
+	            Créer un nouveau tarif
+	        </a>
+		</p>
+		{% endif %}
+		
+		<table class="records_list">
+		    <thead>
+		        <tr>
+		            <th>Nom</th>
+		            <th>Valeur</th>
+		            <th></th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    {% for entity in entities %}
+		        <tr>
+		            <td>Tarif {{ entity.id }}</td>
+		            <td>{{ entity.value }} €</td>
+		            <td>
+                        <a class="btn" href="{{ path('rate_edit', { 'id': entity.id }) }}">Modifier</a>
+		            </td>
+		        </tr>
+		    {% endfor %}
+		    </tbody>
+		</table>
+		
+	</div>
+</div>
+{% endblock %}

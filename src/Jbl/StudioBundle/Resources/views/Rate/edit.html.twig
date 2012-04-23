@@ -1,0 +1,53 @@
+{% extends "JblStudioBundle::admin_layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Tarifs{% endblock %}
+
+{% block body %}
+
+<div class="sand-bg">
+
+	<div class="container" id="content">
+		<h1>Modification du tarif</h1>
+		
+		<div class="row">
+			<div class="span8">
+				<fieldset>
+					<legend>Modifier le tarif</legend>
+					<form action="{{ path('rate_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+					
+						<div class="clearfix">
+							
+							{{ form_label(edit_form.value, 'Valeur :') }}
+						    <div class="input">
+						    	{{ form_widget(edit_form.value,{ 'attr': {'class': 'xlarge', 'size':'30'} }) }}
+							</div>
+						</div>
+					
+					    {{ form_widget(edit_form) }}
+					    <div class="actions">
+					        <button class="btn success" type="submit">Modifier</button>
+					        <a class="btn" href="{{ path('rate') }}">Annuler</a>
+					    </div>
+					</form>
+				</fieldset>
+			</div>
+			{% if is_granted('ROLE_SUPER_ADMIN') %}
+			<div class="span8">
+				<fieldset>
+					<legend>Supprimer le tarif</legend>
+					
+					<span class="label important">Important</span> Attention, cette suppression est définitive !
+					
+			        <form action="{{ path('rate_delete', { 'id': entity.id }) }}" method="post">
+			            {{ form_widget(delete_form) }}
+			            <div class="actions">
+			            	<button class="btn danger" type="submit">Supprimer</button>
+			            </div>
+			        </form>
+				</fieldset>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %}

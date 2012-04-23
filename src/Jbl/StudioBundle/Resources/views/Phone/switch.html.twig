@@ -1,0 +1,37 @@
+{% extends "JblStudioBundle::admin_layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Téléphone{% endblock %}
+
+{% block body %}
+
+<div class="sand-bg">
+
+	<div class="container" id="content">
+		
+		<div class="row">
+			<div class="span16">
+							
+				<h1>Numéro de Téléphone Visible</h1>
+				
+				<form action="{{ path('phone_switchConfirmation') }}" method="post" {{ form_enctype(edit_form) }}>
+					
+					<p>Cette page permet d'afficher ou non le numéro de téléphone sur la page d'accueil visible au public.</p>
+				
+					<div class="clearfix">
+							
+						{{ form_label(edit_form.available, 'Visible :') }}
+					    <div class="input">
+					    	{{ form_widget(edit_form.available,{ 'attr': {'class': 'xlarge'} }) }}
+						</div>
+					</div>
+				
+				    {{ form_widget(edit_form) }}
+				    <div class="actions">
+				        <button class="btn success" type="submit">Valider</button>
+				    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

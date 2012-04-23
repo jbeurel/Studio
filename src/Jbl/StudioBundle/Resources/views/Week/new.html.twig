@@ -1,0 +1,40 @@
+{% extends "JblStudioBundle::admin_layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Semaines{% endblock %}
+
+{% block body %}
+
+<div class="sand-bg">
+
+	<div class="container" id="content">
+		<h1>Nouvelle semaine</h1>
+		
+		<fieldset>
+			<legend>Ajouter une semaine</legend>
+			<form action="{{ path('week_create') }}" method="post">
+			
+			<p><span class="label notice">Info </span> : Semaine du <b>{{ startDate }}</b> au <b>{{ endDate }}</b></p>
+			
+			<div class="clearfix">
+			    <label for="rate">Tarif :</label>
+			    <div class="input">
+			    	<select name="rate" id="rate">
+			    	{% for rate in rates%}
+		                <option value="{{ rate.id }}">Tarif {{ rate.id }} : {{ rate.value }} €</option>
+					{% endfor %}
+					</select>
+				</div>
+			</div>
+			
+			<input type="hidden" name="timestamp" value="{{ timestamp }}"> 
+			
+			<div class="actions">
+		    	<button class="btn success" type="submit">Ajouter</button>
+				<a class="btn" href="{{ path('week_calendar') }}">Annuler</a>
+		    </div>
+		</fieldset>
+		
+
+	</div>
+</div>
+{% endblock %}

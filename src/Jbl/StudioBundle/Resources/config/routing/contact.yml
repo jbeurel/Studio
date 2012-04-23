@@ -1,0 +1,30 @@
+contact:
+    pattern:  /
+    defaults: { _controller: "JblStudioBundle:Contact:index" }
+
+contact_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "JblStudioBundle:Contact:show" }
+
+contact_new:
+    pattern:  /new
+    defaults: { _controller: "JblStudioBundle:Contact:new" }
+
+contact_create:
+    pattern:  /create
+    defaults: { _controller: "JblStudioBundle:Contact:create" }
+    requirements: { _method: post }
+
+contact_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "JblStudioBundle:Contact:edit" }
+
+contact_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "JblStudioBundle:Contact:update" }
+    requirements: { _method: post }
+
+contact_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "JblStudioBundle:Contact:delete" }
+    requirements: { _method: post }

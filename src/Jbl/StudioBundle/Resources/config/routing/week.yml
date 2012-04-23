@@ -1,0 +1,65 @@
+week:
+    pattern:  /
+    defaults: { _controller: "JblStudioBundle:Week:index" }
+
+week_calendar:
+    pattern:  /calendar/{timestamp}
+    defaults: { _controller: "JblStudioBundle:Week:calendar", timestamp: -1  }
+    
+week_jsonlistadmin:
+    pattern:  /jsonlistadmin
+    defaults: { _controller: "JblStudioBundle:Week:jsonlistadmin" }
+    
+week_jsonlist:
+    pattern:  /jsonlist
+    defaults: { _controller: "JblStudioBundle:Week:jsonlist" }
+
+    
+week_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "JblStudioBundle:Week:show" }
+
+week_new:
+    pattern:  /new/{timestamp}
+    defaults: { _controller: "JblStudioBundle:Week:new", timestamp: -1  }
+
+week_create:
+    pattern:  /create
+    defaults: { _controller: "JblStudioBundle:Week:create" }
+    requirements: { _method: post }
+
+week_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: "JblStudioBundle:Week:edit", id: -1  }
+
+week_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "JblStudioBundle:Week:update" }
+    requirements: { _method: post }
+
+week_delete:
+    pattern:  /delete/{timestamp}
+    defaults: { _controller: "JblStudioBundle:Week:delete", timestamp: -1  }
+    requirements: { _method: post }
+
+week_reserve:
+    pattern:  /reserve/{timestamp}
+    defaults: { _controller: "JblStudioBundle:Week:reserve", timestamp: -1  }
+
+week_reserveValidation:
+    pattern:  /reserveValidation/{id}
+    defaults: { _controller: "JblStudioBundle:Week:reserveValidation"}
+    requirements: { _method: post }
+    
+week_reserveCancellation:
+    pattern:  /reserveCancellation/{id}
+    defaults: { _controller: "JblStudioBundle:Week:reserveCancellation"}
+    requirements: { _method: post }
+    
+week_rate:
+    pattern:  /rate/{timestamp}
+    defaults: { _controller: "JblStudioBundle:Week:rate", timestamp: -1  }
+    
+week_rateValidation:
+    pattern:  /rateValidation/{id}
+    defaults: { _controller: "JblStudioBundle:Week:rateValidation" }

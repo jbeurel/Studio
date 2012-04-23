@@ -1,0 +1,30 @@
+rate:
+    pattern:  /
+    defaults: { _controller: "JblStudioBundle:Rate:index" }
+
+rate_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "JblStudioBundle:Rate:show" }
+
+rate_new:
+    pattern:  /new
+    defaults: { _controller: "JblStudioBundle:Rate:new" }
+
+rate_create:
+    pattern:  /create
+    defaults: { _controller: "JblStudioBundle:Rate:create" }
+    requirements: { _method: post }
+
+rate_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "JblStudioBundle:Rate:edit" }
+
+rate_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "JblStudioBundle:Rate:update" }
+    requirements: { _method: post }
+
+rate_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "JblStudioBundle:Rate:delete" }
+    requirements: { _method: post }

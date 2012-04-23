@@ -1,0 +1,34 @@
+{% extends "JblStudioBundle::admin_layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Semaines{% endblock %}
+
+{% block body %}
+
+<div class="sand-bg">
+
+	<div class="container" id="content">
+		<h1>Modification du tarif</h1>
+		
+		<fieldset>
+			<legend>Modifier le tarif de la semaine</legend>
+			<form action="{{ path('week_rateValidation', { 'id': week.id }) }}" method="post">
+			
+			<div class="clearfix">
+			    {{ form_label(form.rate, "Tarif :") }}
+			    <div class="input">
+					{{ form_widget(form.rate) }}
+				</div>
+			</div>
+						
+			{{ form_widget(form) }}
+			
+			<div class="actions">
+		    	<button class="btn success" type="submit">Modifier</button>
+				<a class="btn" href="{{ path('week_calendar') }}">Annuler</a>
+		    </div>
+		</fieldset>
+		
+
+	</div>
+</div>
+{% endblock %}

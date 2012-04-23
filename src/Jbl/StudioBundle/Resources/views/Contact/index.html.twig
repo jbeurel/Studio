@@ -1,0 +1,47 @@
+{% extends "JblStudioBundle::admin_layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Contacts{% endblock %}
+
+{% block body %}
+
+<div class="sand-bg">
+
+	<div class="container" id="content">
+	
+		<h1>Liste des contacts</h1>
+
+		<p>
+		        <a class="btn success" href="{{ path('contact_new') }}">
+		            Ajouter un nouveau contact
+		        </a>
+		</p>
+		<table class="bordered-table zebra-striped sorted">
+		    <thead>
+		        <tr>
+		            <th>Nom</th>
+		            <th>Prénom</th>
+		            <th>Adresse</th>
+		            <th>Téléphone</th>
+		            <th>Informations</th>
+		            <th>Action</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    {% for entity in entities %}
+		        <tr>
+		            <td>{{ entity.lastName }}</td>
+		            <td>{{ entity.firstName }}</td>
+		            <td>{{ entity.address }}</td>
+		            <td>{{ entity.phone }}</td>
+		            <td>{{ entity.info }}</td>
+		            <td>
+                        <a class="btn info" href="{{ path('contact_edit', { 'id': entity.id }) }}">Modifier</a>
+		            </td>
+		        </tr>
+		    {% endfor %}
+		    </tbody>
+		</table>
+		
+	</div>
+</div>
+{% endblock %}

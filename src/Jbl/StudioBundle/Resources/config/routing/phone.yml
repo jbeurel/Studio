@@ -1,0 +1,38 @@
+phone:
+    pattern:  /
+    defaults: { _controller: "JblStudioBundle:Phone:index" }
+
+phone_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "JblStudioBundle:Phone:show" }
+
+phone_new:
+    pattern:  /new
+    defaults: { _controller: "JblStudioBundle:Phone:new" }
+
+phone_create:
+    pattern:  /create
+    defaults: { _controller: "JblStudioBundle:Phone:create" }
+    requirements: { _method: post }
+
+phone_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "JblStudioBundle:Phone:edit" }
+
+phone_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "JblStudioBundle:Phone:update" }
+    requirements: { _method: post }
+
+phone_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "JblStudioBundle:Phone:delete" }
+    requirements: { _method: post }
+    
+phone_switch:
+    pattern: /switch
+    defaults: { _controller: "JblStudioBundle:Phone:switch" }
+    
+phone_switchConfirmation:
+    pattern: /switchConfirmation
+    defaults: { _controller: "JblStudioBundle:Phone:switchConfirmation" }

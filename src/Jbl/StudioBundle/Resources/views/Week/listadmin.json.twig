@@ -1,0 +1,11 @@
+[
+{% for week in weeks %}
+{
+	"title":"{% if week.isFree %}Semaine disponible : {{week.rate.value}}€ {% else %}Semaine réservée pour {{week.contact.firstname}} {{week.contact.lastname}}{% endif%}",
+	"color":"{% if week.isFree %}green{% else %}red{% endif%}",
+	"start":"{% if week.start %}{{ week.start|date('Y-m-d') }}{% endif%}",
+	"end":"{% if week.end %}{{ week.end|date('Y-m-d') }}{% endif%}",
+	"allDay":true
+},
+{% endfor %}
+{}]

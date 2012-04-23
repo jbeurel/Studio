@@ -1,0 +1,4 @@
+JblStudioBundle:
+    resource: "@JblStudioBundle/Resources/config/routing.yml"
+    prefix:   /
+
